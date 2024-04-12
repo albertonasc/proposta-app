@@ -1,9 +1,17 @@
 package com.alberto.propostaapp.entity;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Entity
 @Table(name = "tb_proposta")
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
 public class Proposta {
 
     @Id
@@ -11,10 +19,10 @@ public class Proposta {
     private Long id;
     private Double valorSolicitado;
     private int prazoPagamento;
-    private Boolean aprovado;
+    private Boolean aprovada;
     private boolean integrada;
     private String observacao;
-    @OneToOne
+    @OneToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "id_usuario")
     private Usuario usuario;
 

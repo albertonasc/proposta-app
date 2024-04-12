@@ -1,9 +1,17 @@
 package com.alberto.propostaapp.entity;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Entity
 @Table(name = "tb_usuario")
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
 public class Usuario {
 
     @Id
@@ -12,7 +20,7 @@ public class Usuario {
     private String nome;
     private String sobrenome;
     private String cpf;
-    private String telfone;
+    private String telefone;
     private Double renda;
     @OneToOne(mappedBy = "usuario")
     private Proposta proposta;
